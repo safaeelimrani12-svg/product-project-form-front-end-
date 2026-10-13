@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD PHP REST API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- ========================= -->
+    <!-- FORMULAIRE -->
+    <!-- ========================= -->
+
+    <form id="formProduit" enctype="multipart/form-data">
+
+        <input type="hidden" name="idPro" id="idPro">
+
+        <div class="main">
+            <h3>ajouter un produit</h3>
+            <p id="message"></p>
+        <div class="row1">
+            <label for="nom" class="">nom du produit</label>
+            <div class="nom">
+            <input type="text" class="nom" id="nom" name="nom" placeholder="Ex: Clavier mecanique" required>
+            </div>
+        </div>
+        <div class="row2">
+            <label for="description" class="">description</label>
+            <div class="description">
+            <input type="text" class="description" name="description" id="description" placeholder="ex: clavier gamer avec retroeclairage" required>
+            </div>
+        </div>
+        <div class="row3">
+            <label for="prix" class="">prix (DH)</label>
+            <div class="prix">
+            <input type="number" class="prix" name="prix"  id="prix" placeholder="0.00" required>
+            </div>
+        </div>
+        <div class="row4">
+            <label for="quantite" class="">quantite</label>
+            <div class="quantite">
+            <input type="number" class="quantite" name="quantite" id="quantite" placeholder="0" required>
+            </div>
+        </div>
+        <div class="row5">
+            <label for="categorie" class="">categorie</label>
+            <select name="categorie" id="categorie" required>
+                <option value="">-- selectionner une categorie --</option>
+            </select>
+        </div>
+        <div class="row6">
+            <label for="photo">Photo du produit</label>
+            <input type="file" name="photo" id="photo" accept=".jpg, .jpeg, .png, .webp, .jfif">
+        </div>
+        <div>
+            <button type="submit" id="btnProduit">ajouter le produit</button>
+            <button type="reset">renitialiser</button>
+        </div>
+        </div>
+    </form>
+
+    <form id="formRecherche" class="search-form">
+        <div class="search-box">
+            <input type="search"
+                name="search"
+                id="search"
+                placeholder="Rechercher un produit...">
+
+            <button type="submit" class="search-btn">
+                Rechercher
+            </button>
+        </div>
+    </form> 
+
+    <!-- ========================= -->
+    <!-- TABLE -->
+    <!-- ========================= -->
+
+    <h3>Liste des produits</h3>            
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Photo</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix (DH)</th>
+                <th>Quantité</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="listeProduits">
+
+        </tbody>
+    </table>   
+    <script src="produit_api.js"></script>
+</body>
+</html>
